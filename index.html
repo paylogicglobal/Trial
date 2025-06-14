@@ -1,30 +1,321 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanif Photography</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayLogic-Global | Solusi Pembayaran Global</title>
+    <style>
+        /* ===== GAYA PROFESIONAL (BIRU + EMAS) ===== */
+        :root {
+            --primary: #2563eb;    /* Biru Profesional */
+            --secondary: #d4af37;  /* Emas */
+            --dark: #1e293b;       /* Biru Gelap */
+            --light: #f8fafc;      /* Putih */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .logo span {
+            color: var(--secondary);
+        }
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #475569;
+        }
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #475569;
+        }
+        .client {
+            display: flex;
+            align-items: center;
+        }
+        .client img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: #e2e8f0;
+        }
+        .client-info h4 {
+            color: var(--dark);
+        }
+        .client-info p {
+            color: #64748b;
+            font-style: normal;
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .footer-links a {
+            color: #cbd5e1;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .copyright {
+            margin-top: 40px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Hanif Photography</h1>
-    <p>Capturing moments from around the world.</p>
-  </header>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">PayLogic<span>-Global</span></div>
+                <div class="nav-links">
+                    <a href="#services">Perkhidmatan</a>
+                    <a href="#testimonials">Testimoni</a>
+                    <a href="#contact">Hubungi</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <section class="gallery">
-    <img src="gallery/photo1.jpg" alt="Nature Photo" />
-    <img src="gallery/photo2.jpg" alt="Cityscape Photo" />
-    <img src="gallery/photo3.jpg" alt="Portrait Photo" />
-    <img src="gallery/photo4.jpg" alt="Wildlife Photo" />
-    <img src="gallery/photo5.jpg" alt="Travel Photo" />
-  </section>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Pembayaran Tanpa Sempadan, Untuk Semua</h1>
+            <p>Platform pembayaran global yang pantas, selamat & efisien untuk perniagaan anda. Sokongan 100+ mata wang & 5 juta+ pengguna global.</p>
+            <a href="#contact" class="cta-button">Mulakan Sekarang →</a>
+        </div>
+    </section>
 
-  <footer>
-    © 2025 Hanif Photography — All rights reserved.
-  </footer>
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perkhidmatan Kami</h2>
+                <p>Solusi lengkap untuk keperluan transaksi global anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💳</div>
+                    <h3>Pemprosesan Pembayaran</h3>
+                    <p>Terima pembayaran dari mana-mana negara dengan kadar tertinggi & yuran terendah.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Penukaran Mata Wang</h3>
+                    <p>Kadar pertukaran real-time untuk 100+ mata wang tanpa kos tersembunyi.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Keselamatan PCI-DSS</h3>
+                    <p>Teknologi enkripsi bank untuk melindungi setiap transaksi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Pelanggan</h2>
+                <p>Berpuluh ribu perniagaan telah berkembang bersama kami</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"PayLogic-Global menyelesaikan masalah transaksi antarabangsa kami. Platform yang intuitif dan sokongan yang hebat!"</p>
+                    <div class="client">
+                        <img src="https://placehold.co/100x100/e2e8f0/64748b?text=J" alt="Client">
+                        <div class="client-info">
+                            <h4>James Chen</h4>
+                            <p>CEO, TechGlobal Sdn Bhd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Yuran lebih rendah 40% berbanding pesaing. Proses integrasi hanya ambil 1 hari. Sangat berpuas hati!"</p>
+                    <div class="client">
+                        <img src="https://placehold.co/100x100/e2e8f0/64748b?text=S" alt="Client">
+                        <div class="client-info">
+                            <h4>Sarah Mohamad</h4>
+                            <p>Pengasas, HijabStyle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">PayLogic-Global</div>
+            <p style="max-width: 600px; margin: 20px auto;">Platform pembayaran global untuk perniagaan moden. <br>Daftar hari ini & nikmati 6 bulan yuran 0%!</p>
+            <a href="mailto:hello@paylogic-global.com" class="cta-button" style="margin: 30px 0;">hello@paylogic-global.com</a>
+            <div class="footer-links">
+                <a href="#">Terma</a>
+                <a href="#">Privasi</a>
+                <a href="#">Blog</a>
+                <a href="#">Kerjaya</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PayLogic-Global. Hak Cipta Terpelihara.
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
